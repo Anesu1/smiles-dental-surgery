@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import { TeamSection } from "@/components/sections/TeamSection"
 
 export default function AboutPage() {
     return (
@@ -12,13 +13,13 @@ export default function AboutPage() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
                     <ScrollReveal direction="right" className="space-y-6">
                         <h1 className="text-4xl font-bold tracking-tight text-slate-900">
-                            Transforming Smiles with Passion and Precision
+                            About Smiles Dental Surgery
                         </h1>
                         <p className="text-lg text-slate-600 leading-relaxed">
-                            Founded in 2010, Dentex has grown from a small family practice into a leading dental center. Our mission is simple: to provide accessible, high-quality dental care that improves not just smiles, but lives.
+                            At Smiles Dental Surgery, we transform oral health with compassionate care and modern technology, ensuring a personalized, comfortable experience for every patient.
                         </p>
                         <p className="text-lg text-slate-600 leading-relaxed">
-                            We believe in a patient-first approach, combining state-of-the-art technology with a warm, welcoming environment to ensure every visit is a positive experience.
+                            Our philosophy focuses on creating confident smiles through clinical excellence and a commitment to patient well-being.
                         </p>
                         <Button asChild size="lg">
                             <Link href="/appointment">Book Your Visit</Link>
@@ -33,11 +34,16 @@ export default function AboutPage() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                         <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                            <div className="inline-block px-3 py-1 rounded-full bg-dental-500/90 text-xs font-bold mb-2">Since 2010</div>
-                            <h3 className="text-2xl font-semibold">A Decade of Care</h3>
-                            <p className="text-white/80">Serving our community with pride</p>
+                            <div className="inline-block px-3 py-1 rounded-full bg-dental-500/90 text-xs font-bold mb-2">Since 2024</div>
+                            <h3 className="text-2xl font-semibold">150+</h3>
+                            <p className="text-white/80">Patient Satisfaction</p>
                         </div>
                     </ScrollReveal>
+                </div>
+
+                {/* Team Section */}
+                <div className="mb-24">
+                    <TeamSection />
                 </div>
 
                 {/* Values */}

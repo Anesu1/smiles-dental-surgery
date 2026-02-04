@@ -36,13 +36,13 @@ export function Hero() {
 
                         <ScrollReveal delay={0.2}>
                             <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                                Expert care for a <span className="text-transparent bg-clip-text bg-gradient-to-r from-dental-500 to-dental-700">lifetime of smiles</span>
+                                Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-dental-500 to-dental-700">Smile Today</span>
                             </h1>
                         </ScrollReveal>
 
                         <ScrollReveal delay={0.3}>
                             <p className="text-xl text-slate-600 max-w-lg leading-relaxed">
-                                Experience modern dentistry in a calm, comfortable environment. From routine checkups to cosmetic makeovers, our team is dedicated to your oral health.
+                                Experience compassionate care and modern dental solutions. From comprehensive exams to cosmetic makeovers, our team is dedicated to your oral health.
                             </p>
                         </ScrollReveal>
 
@@ -66,8 +66,8 @@ export function Hero() {
                             </div>
                             <div className="w-px h-10 bg-slate-200"></div>
                             <div className="flex flex-col gap-1">
-                                <span className="text-2xl font-bold text-dental-900 leading-none">2k+</span>
-                                <span className="text-sm font-medium text-slate-600">Happy Patients</span>
+                                <span className="text-2xl font-bold text-dental-900 leading-none">150+</span>
+                                <span className="text-sm font-medium text-slate-600">Patient Satisfaction</span>
                             </div>
                         </ScrollReveal>
                     </div>
@@ -117,8 +117,8 @@ export function Hero() {
                                     <ShieldCheck className="h-6 w-6" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-slate-900">Certified Experts</p>
-                                    <p className="text-xs text-slate-500">Board Certified Specialists</p>
+                                    <p className="text-sm font-bold text-slate-900">Expert Exams</p>
+                                    <p className="text-xs text-slate-500">Comprehensive Health Checks</p>
                                 </div>
                             </motion.div>
 
@@ -135,8 +135,8 @@ export function Hero() {
                                     <Clock className="h-6 w-6" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-slate-900">Open Saturdays</p>
-                                    <p className="text-xs text-slate-500">Weekend appointments available</p>
+                                    <p className="text-sm font-bold text-slate-900">Personalized Whitening</p>
+                                    <p className="text-xs text-slate-500">For a brighter smile</p>
                                 </div>
                             </motion.div>
 

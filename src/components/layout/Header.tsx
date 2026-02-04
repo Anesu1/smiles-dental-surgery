@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -33,28 +34,7 @@ export function Header() {
                 <div className="flex h-20 items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center space-x-2">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-dental-500 text-white">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="h-6 w-6"
-                            >
-                                <path d="M12 2C7.03 2 3 6.03 3 11c0 1.66.41 3.2 1.13 4.54L3 22l6.46-1.13A8.97 8.97 0 0 0 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" />
-                                {/* Simple tooth-like or clean smile icon placeholder for now, using a generic shape or could be a custom SVG path */}
-                                {/* Let's use a sparkle or smile icon path for "Dental" vibe if Lucide doesn't have one perfect. */}
-                                {/* Actually, I'll just use a 'Smile' icon from lucide if I imported it, but I didn't. I'll use a custom path or just text for now? */}
-                                {/* Valid SVG for a tooth/smile concept: */}
-                                <path d="M7 12c1 2.5 3 4 5 4s4-1.5 5-4" />
-                            </svg>
-                        </div>
-                        <span className="text-xl font-bold tracking-tight text-dental-900">
-                            Dentex
-                        </span>
+                      <Image src="/images/logo.png" alt="Logo" width={100} height={50} className="w-30 h-auto" />
                     </Link>
 
                     {/* Desktop Nav */}

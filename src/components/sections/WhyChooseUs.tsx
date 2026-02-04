@@ -28,10 +28,10 @@ export function WhyChooseUs() {
                     <div>
                         <ScrollReveal className="mb-12">
                             <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                                Why Choose Dentex?
+                                Your Smile, Our Commitment
                             </h2>
                             <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                                We combine expertise with empathy to deliver the highest standard of dental care. Our modern facility and dedicated team ensure your visit is comfortable and effective.
+                                Experience Clinical Excellence. We offer a wide range of dental services, including exams, cleanings, fillings, extractions, implants, crowns, dentures, and cosmetic treatments, all designed to promote lasting health and confident smiles.
                             </p>
                         </ScrollReveal>
 
