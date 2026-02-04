@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --font-sans: var(--font-inter);
+
+    --color-dental-50: #f0f9ff;
+    --color-dental-100: #e0f2fe;
+    --color-dental-200: #bae6fd;
+    --color-dental-300: #7dd3fc;
+    --color-dental-400: #38bdf8;
+    --color-dental-500: #0ea5e9;
+    --color-dental-600: #0284c7;
+    --color-dental-700: #0369a1;
+    --color-dental-800: #075985;
+    --color-dental-900: #0c4a6e;
+    --color-dental-950: #082f49;
+
+    /* Slate is default but mapping it if needed, or just relying on slate-* which works */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+    }
+
+    body {
+        @apply bg-slate-50 text-slate-800;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
 }
