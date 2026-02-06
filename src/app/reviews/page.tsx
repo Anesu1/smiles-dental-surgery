@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ReviewsPage() {
     return (
-        <main className="min-h-screen pt-12 pb-24 bg-slate-50">
+        <main className="min-h-screen pt-0 pb-24 bg-slate-50/0">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight text-slate-900">
@@ -26,8 +26,8 @@ export default function ReviewsPage() {
                 </div>
 
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    {testimonials.concat(testimonials).map((testimonial, i) => ( // Doubling data for demo purpose to fill grid
-                        <Card key={i} className="break-inside-avoid bg-white border-slate-100 shadow-sm transition-all hover:shadow-md">
+                    {testimonials.map((testimonial) => (
+                        <Card key={testimonial.id} className="break-inside-avoid bg-white border-slate-100 shadow-sm transition-all hover:shadow-md">
                             <CardContent className="pt-6">
                                 <div className="flex mb-4 text-yellow-400">
                                     {Array.from({ length: 5 }).map((_, i) => (
@@ -37,7 +37,11 @@ export default function ReviewsPage() {
                                         />
                                     ))}
                                 </div>
-                                <p className="text-slate-700 italic mb-6 leading-relaxed">"{testimonial.content}"</p>
+                                {testimonial.content ? (
+                                    <p className="text-slate-700 italic mb-6 leading-relaxed">"{testimonial.content}"</p>
+                                ) : (
+                                    <p className="text-slate-500 italic mb-6 leading-relaxed">Rating only</p>
+                                )}
                                 <div className="flex items-center gap-3">
                                     <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-400">
                                         {testimonial.name[0]}

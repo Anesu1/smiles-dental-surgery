@@ -27,4 +27,32 @@ export const testimonials = [
         content: "Professional, clean, and modern facility. The booking process via WhatsApp was incredibly convenient.",
         rating: 4,
     },
+    {
+        id: 5,
+        name: "Vimbainashe Hakurimwi",
+        role: "Patient",
+        content: "Waht an awesome experince . Very welcoming staff and a patient dentist who does his work thorough and explaining every step",
+        rating: 5,
+    },
+    {
+        id: 6,
+        name: "Hillary T Mabubu",
+        role: "Patient",
+        content: "Loved the experience. Had a tooth extraction today and the dentist was so good and he explains everything patiently, the whole staff is welcoming and friendly. The fees are reasonable as well. Keep it up guys. God bless",
+        rating: 5,
+    },
+    {
+        id: 7,
+        name: "Musawenkosi Maplanka",
+        role: "Patient",
+        content: "",
+        rating: 5,
+    },
+    {
+        id: 8,
+        name: "Perfect Hlabangana",
+        role: "Patient",
+        content: "",
+        rating: 5,
+    },
 ]

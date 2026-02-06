@@ -2,30 +2,7 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { motion } from "framer-motion"
-
-const team = [
-    {
-        name: "Dr Brian Mbayiwa",
-        role: "Dental Surgeon",
-        qualifications: "BDS (UKR) IMPLANTOLOGY (INDIA) ORTHODONTICS (INDIA)",
-        image: "/images/Whisk_31b3ae92fd6b0019cf1460620012e8dadr.jpeg" // Assigned based on available assets, user can swap
-    },
-    {
-        name: "Nontokozo Ncube",
-        role: "Dental Assistant",
-        image: "/images/Whisk_2b587a554512097ae6e466ea90e6b839dr.jpeg"
-    },
-    {
-        name: "Elton Machikiza",
-        role: "Dental Assistant",
-        image: "/images/Whisk_33d24c00954b9138e174d67ab47c8331eg.png"
-    },
-    {
-        name: "Tafadzwa Athena Mukwasi",
-        role: "Receptionist",
-        image: "/images/Whisk_388d481d793abcfa105453eda4df66c4dr.jpeg"
-    }
-]
+import { team } from "@/data/team"
 
 export function TeamSection() {
     return (
@@ -42,7 +19,7 @@ export function TeamSection() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {team.map((member, index) => (
-                        <ScrollReveal key={index} delay={index * 0.1}>
+                        <ScrollReveal key={member.id} delay={index * 0.1}>
                             <motion.div
                                 whileHover={{ y: -10 }}
                                 className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"

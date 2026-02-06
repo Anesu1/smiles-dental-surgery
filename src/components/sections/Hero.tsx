@@ -1,158 +1,164 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Star, ShieldCheck, Clock, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import Link from "next/link";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { ArrowRight, Star, ShieldCheck, Clock, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useRef } from "react";
+import Image from "next/image";
 
 export function Hero() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollY } = useScroll();
+    const prefersReducedMotion = useReducedMotion();
+    const y1 = useTransform(scrollY, [0, 500], [0, prefersReducedMotion ? 0 : 200]);
+    const y2 = useTransform(scrollY, [0, 500], [0, prefersReducedMotion ? 0 : -150]);
+
     return (
-        <section className="relative overflow-hidden pt-12 pb-24 lg:pt-28 lg:pb-36">
-            {/* Background Decorative Elements - Pulse Animation */}
-            <motion.div
-                animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 -z-10 h-[800px] w-[800px] rounded-full bg-dental-50 blur-3xl opacity-40 translate-x-1/3 -translate-y-1/4"
-            />
-            <motion.div
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.4, 0.3] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] rounded-full bg-blue-50 blur-3xl opacity-40 -translate-x-1/3 translate-y-1/4"
-            />
+        <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pb-12 lg:pb-0 bg-white/0">
+            {/* Ambient Background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-[-10%] right-[-10%] w-[80vw] h-[80vw] bg-dental-200/20 rounded-full blur-[100px]" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-dental-500/10 rounded-full blur-[120px]" />
+            </div>
 
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                    <div className="space-y-8 relative z-10">
-                        <ScrollReveal direction="down" delay={0.1}>
-                            <div className="inline-flex items-center rounded-full border border-dental-100 bg-white/80 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-dental-600 shadow-sm">
-                                <span className="relative flex h-2.5 w-2.5 mr-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-dental-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-dental-500"></span>
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                    {/* Content Column */}
+                    <div className="space-y-10 relative">
+                        <motion.div
+                            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.2 }}
+                            className="inline-flex items-center gap-2 rounded-full border border-dental-200 bg-white/60 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-dental-800"
+                        >
+                            <span className="relative flex h-2 w-2">
+                                <span className={prefersReducedMotion ? "absolute inline-flex h-full w-full rounded-full bg-dental-400 opacity-75" : "animate-ping absolute inline-flex h-full w-full rounded-full bg-dental-400 opacity-75"}></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-dental-500"></span>
+                            </span>
+                            Accepting New Patients
+                        </motion.div>
+
+                        <div className="space-y-4">
+                            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-heading font-black tracking-tight text-dental-950 leading-[0.9]">
+                                <span className="block overflow-hidden">
+                                    <motion.span
+                                        initial={prefersReducedMotion ? false : { y: "110%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.16, 1, 0.3, 1], delay: prefersReducedMotion ? 0 : 0.3 }}
+                                        className="block"
+                                    >
+                                        Care crafted
+                                    </motion.span>
                                 </span>
-                                Accepting New Patients
-                            </div>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={0.2}>
-                            <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                                Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-dental-500 to-dental-700">Smile Today</span>
+                                <span className="block overflow-hidden text-dental-500">
+                                    <motion.span
+                                        initial={prefersReducedMotion ? false : { y: "110%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.16, 1, 0.3, 1], delay: prefersReducedMotion ? 0 : 0.4 }}
+                                        className="block"
+                                    >
+                                        for your smile
+                                    </motion.span>
+                                </span>
                             </h1>
-                        </ScrollReveal>
+                            <motion.p
+                                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.6 }}
+                                className="text-xl text-dental-700/80 max-w-lg leading-relaxed font-light"
+                            >
+                                Experience modern dentistry where precision meets compassion. Designed for comfort, styled for confidence.
+                            </motion.p>
+                        </div>
 
-                        <ScrollReveal delay={0.3}>
-                            <p className="text-xl text-slate-600 max-w-lg leading-relaxed">
-                                Experience compassionate care and modern dental solutions. From comprehensive exams to cosmetic makeovers, our team is dedicated to your oral health.
-                            </p>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={0.4} className="flex flex-col sm:flex-row gap-4">
-                            <Button asChild size="lg" className="h-14 px-8 text-base shadow-lg shadow-dental-500/20 hover:shadow-xl hover:shadow-dental-500/30 transition-all hover:-translate-y-0.5">
+                        <motion.div
+                            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.7 }}
+                            className="flex flex-col sm:flex-row gap-4"
+                        >
+                            <Button asChild size="lg" className="h-14 px-8 rounded-full text-lg bg-dental-900 text-white hover:bg-dental-800 hover:scale-105 transition-all shadow-xl shadow-dental-900/20">
                                 <Link href="/appointment">
-                                    Book Appointment <ArrowRight className="ml-2 h-5 w-5" />
+                                    Book Appointment
                                 </Link>
                             </Button>
-                            <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base bg-white/50 backdrop-blur-sm hover:bg-white transition-all hover:-translate-y-0.5">
-                                <Link href="/services">Browse Services</Link>
+                            <Button asChild variant="ghost" size="lg" className="h-14 px-8 rounded-full text-lg text-dental-900 hover:bg-white/50 backdrop-blur-sm border border-transparent hover:border-dental-200">
+                                <Link href="/services" className="group">
+                                    Our Services <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                                </Link>
                             </Button>
-                        </ScrollReveal>
+                        </motion.div>
 
-                        <ScrollReveal delay={0.5} className="pt-8 flex items-center gap-8 border-t border-slate-100/50">
-                            <div className="flex flex-col gap-1">
-                                <div className="flex items-center text-yellow-400">
-                                    {[1, 2, 3, 4, 5].map(i => <Star key={i} className="fill-current h-5 w-5" />)}
+                        <motion.div
+                            initial={prefersReducedMotion ? false : { opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: prefersReducedMotion ? 0 : 1, delay: prefersReducedMotion ? 0 : 1 }}
+                            className="pt-8 flex items-center gap-8 border-t border-dental-200/50"
+                        >
+                            <div className="flex -space-x-3">
+                                {[1, 2, 3, 4].map((i) => (
+                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-dental-200" />
+                                ))}
+                                <div className="w-10 h-10 rounded-full border-2 border-white bg-dental-950 text-white flex items-center justify-center text-xs font-bold">
+                                    500+
                                 </div>
-                                <span className="text-sm font-medium text-slate-600">5.0 Star Rating</span>
                             </div>
-                            <div className="w-px h-10 bg-slate-200"></div>
-                            <div className="flex flex-col gap-1">
-                                <span className="text-2xl font-bold text-dental-900 leading-none">150+</span>
-                                <span className="text-sm font-medium text-slate-600">Patient Satisfaction</span>
+                            <div className="flex flex-col">
+                                <div className="flex items-center text-orange-400">
+                                    {[1, 2, 3, 4, 5].map(i => <Star key={i} className="fill-current h-4 w-4" />)}
+                                </div>
+                                <span className="text-sm font-medium text-dental-700">Happy Patients</span>
                             </div>
-                        </ScrollReveal>
+                        </motion.div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative lg:h-[650px] hidden lg:block"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-tr from-dental-50 to-white rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white">
-                            <div className="absolute inset-0 flex items-center justify-center text-dental-200">
-                                {/* Abstract Pattern Background */}
-                                <svg className="absolute inset-0 w-full h-full opacity-30" width="100%" height="100%">
-                                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
-                                    </pattern>
-                                    <rect width="100%" height="100%" fill="url(#grid)" />
-                                </svg>
-
-                                <div className="relative z-10 p-12 text-center space-y-4">
-                                    <motion.div
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                        className="mx-auto w-32 h-32 rounded-full border-4 border-dashed border-dental-300 flex items-center justify-center"
-                                    >
-                                        <div className="w-24 h-24 rounded-full bg-dental-100 flex items-center justify-center">
-                                            <span className="text-4xl">🦷</span>
-                                        </div>
-                                    </motion.div>
-                                    <h3 className="text-2xl font-bold text-dental-800">Advanced Dental Care</h3>
-                                    <p className="text-dental-600">Using the latest technology for your smile.</p>
+                    {/* Visual Column - Parallax Composition */}
+                    <div className="relative h-[600px] hidden lg:block perspective-1000">
+                        {/* Main Card */}
+                        <motion.div style={{ y: y1 }} className="absolute right-0 top-10 w-3/4 h-[500px] z-10">
+                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl shadow-dental-900/10 border-4 border-white">
+                                <Image
+                                    src="/images/Whisk_2a25f2e53067f3b9c534e1fe7a2de025dr.jpeg"
+                                    alt="Modern dental clinic interior"
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                    sizes="(min-width: 1024px) 60vw, 100vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-dental-900/40 to-transparent" />
+                                <div className="absolute bottom-8 left-8 text-white">
+                                    <p className="text-lg font-bold">Dr. Sarah & Team</p>
+                                    <p className="opacity-80">Leading Specialists</p>
                                 </div>
                             </div>
+                        </motion.div>
 
-                            {/* Floating Elements - More dynamic */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -50 }}
-                                animate={{ opacity: 1, x: 0, y: [0, -10, 0] }}
-                                transition={{
-                                    opacity: { delay: 0.8 },
-                                    y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
-                                }}
-                                className="absolute top-24 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-[240px] border border-white"
-                            >
-                                <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
-                                    <ShieldCheck className="h-6 w-6" />
+                        {/* Floating elements */}
+                        <motion.div
+                            style={{ y: y2 }}
+                            className="absolute left-0 bottom-20 z-20 bg-white p-6 rounded-2xl shadow-xl shadow-dental-900/5 max-w-[260px] border border-dental-100"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-dental-50 flex items-center justify-center text-dental-500 shrink-0">
+                                    <ShieldCheck className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-slate-900">Expert Exams</p>
-                                    <p className="text-xs text-slate-500">Comprehensive Health Checks</p>
+                                    <h4 className="font-bold text-dental-900">Certified Care</h4>
+                                    <p className="text-sm text-dental-600 mt-1 leading-snug">State-of-the-art equipment and standardized procedures.</p>
                                 </div>
-                            </motion.div>
+                            </div>
+                        </motion.div>
 
-                            <motion.div
-                                initial={{ opacity: 0, x: 50 }}
-                                animate={{ opacity: 1, x: 0, y: [0, 10, 0] }}
-                                transition={{
-                                    opacity: { delay: 1 },
-                                    y: { repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }
-                                }}
-                                className="absolute bottom-32 right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-white"
-                            >
-                                <div className="h-12 w-12 rounded-full bg-dental-100 flex items-center justify-center text-dental-600 shrink-0">
-                                    <Clock className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold text-slate-900">Personalized Whitening</p>
-                                    <p className="text-xs text-slate-500">For a brighter smile</p>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 1.2, type: "spring" }}
-                                className="absolute bottom-12 left-12 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-white flex items-center gap-2"
-                            >
-                                <CheckCircle className="h-4 w-4 text-dental-500" />
-                                <span className="text-xs font-semibold text-dental-900">15+ Years Experience</span>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            animate={prefersReducedMotion ? undefined : { rotate: 360 }}
+                            transition={prefersReducedMotion ? undefined : { duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute right-10 top-0 w-32 h-32 rounded-full border border-dashed border-dental-300 z-0 opacity-50"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }

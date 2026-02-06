@@ -1,12 +1,12 @@
 
 import { Card } from "@/components/ui/card"
 import { team } from "@/data/team"
-import { User2 } from "lucide-react"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import Image from "next/image"
 
 export default function TeamPage() {
     return (
-        <main className="min-h-screen pt-12 pb-24 bg-white">
+        <main className="min-h-screen pt-0 pb-24 bg-white/0">
             <div className="container mx-auto px-4 md:px-6">
                 <ScrollReveal className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight text-slate-900">
@@ -22,15 +22,23 @@ export default function TeamPage() {
                         <div key={member.id} className="group">
                             <Card className="overflow-hidden border-none shadow-none">
                                 <div className="aspect-[4/5] bg-slate-100 rounded-2xl relative overflow-hidden mb-4">
-                                    {/* Image Placeholder */}
-                                    <div className="absolute inset-0 flex items-center justify-center text-slate-300 bg-slate-100 group-hover:bg-dental-50 transition-colors duration-300">
-                                        <User2 className="h-24 w-24 group-hover:scale-110 transition-transform duration-500" />
-                                    </div>
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </div>
                                 <div className="space-y-1">
                                     <h3 className="text-xl font-bold text-slate-900 group-hover:text-dental-600 transition-colors">{member.name}</h3>
                                     <p className="font-medium text-dental-500">{member.role}</p>
-                                    <p className="text-sm text-slate-600 pt-2 leading-relaxed">{member.bio}</p>
+                                    {member.qualifications ? (
+                                        <p className="text-xs text-slate-500 pt-2 leading-relaxed border-t border-slate-200">
+                                            {member.qualifications}
+                                        </p>
+                                    ) : null}
                                 </div>
                             </Card>
                         </div>

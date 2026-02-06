@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
-import { X } from "lucide-react"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { X, ZoomIn, Camera } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-// A subset of images from public/images
+// A subset of images from public/images - curated for best visual impact
 const galleryImages = [
     "/images/Whisk_0e891c53e3e14e4b64044b6761ade36bdr.jpeg",
     "/images/Whisk_1037e134b87547781a14fb6fae04788fdr.jpeg",
@@ -17,52 +17,51 @@ const galleryImages = [
     "/images/Whisk_31b3ae92fd6b0019cf1460620012e8dadr.jpeg",
     "/images/Whisk_388d481d793abcfa105453eda4df66c4dr.jpeg",
     "/images/Whisk_3c51834d16a653f8dce4f4d8a56895a0dr.jpeg",
-    "/images/Whisk_4ea40622332075988574ed07f8b54590dr.jpeg",
-    "/images/Whisk_54c577d0ce32ca5b4b346dd7631b11cfdr.jpeg",
-    "/images/Whisk_5a6fb424577a7198c0c45159792ec7e1dr.jpeg",
-    "/images/Whisk_7034a57d0d37c24ab93427953cd20f48dr.jpeg",
-    "/images/Whisk_7537855f0704c37b0e248d0b62e5b4a3dr.jpeg",
-    "/images/Whisk_761441fa31eb74d9c6c40c11e26e47fcdr.jpeg",
-    "/images/Whisk_7833f9f6828ce4788964d159fb8e3157dr.jpeg",
-]
+];
 
 export function GallerySection() {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null)
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     return (
-        <section className="py-24 bg-slate-50 relative overflow-hidden">
-            <div className="container mx-auto px-4 md:px-6">
-                <ScrollReveal className="text-center max-w-2xl mx-auto mb-16 relative z-10">
-                    <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                        Our Smiles Gallery
+        <section className="py-32 bg-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-dental-50/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <ScrollReveal className="text-center max-w-2xl mx-auto mb-20 relative z-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dental-100/50 text-dental-600 text-sm font-semibold mb-6">
+                        <Camera className="h-4 w-4" />
+                        Our Results
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight text-dental-950 mb-6">
+                        Real Smiles, <span className="text-dental-500">Real Life</span>
                     </h2>
-                    <p className="mt-4 text-lg text-slate-600">
-                        Real results from our happy patients. See the difference compassion and expertise can make.
+                    <p className="text-xl text-dental-700/70 font-light">
+                        See the transformative power of compassionate dental care.
                     </p>
                 </ScrollReveal>
 
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                     {galleryImages.map((src, index) => (
-                        <ScrollReveal key={index} delay={index * 0.05}>
+                        <ScrollReveal key={index} delay={index * 0.05} className={cn(
+                            "relative aspect-square overflow-hidden rounded-2xl cursor-pointer group",
+                            index === 1 || index === 5 ? "md:row-span-2 md:aspect-[1/2]" : ""
+                        )}>
                             <motion.div
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ duration: 0.3 }}
-                                className="break-inside-avoid overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow bg-white relative group cursor-pointer"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                className="w-full h-full relative"
                                 onClick={() => setSelectedImage(src)}
                             >
-                                <div className="relative w-full">
-                                    {/* 
-                      Note: In a real masonry grid with unknown aspect ratios, 
-                      Next.js Image needs width/height or fill+parent-relative.
-                      Since we're using columns, width is fluid. We'll use width-full and auto height style.
-                   */}
-                                    <img
-                                        src={src}
-                                        alt={`Gallery Image ${index + 1}`}
-                                        className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
-                                        loading="lazy"
-                                    />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                                <img
+                                    src={src}
+                                    alt={`Gallery Image ${index + 1}`}
+                                    className="w-full h-full object-cover transition-all duration-700 grayscale-[0.2] group-hover:grayscale-0"
+                                    loading="lazy"
+                                />
+                                <div className="absolute inset-0 bg-dental-900/0 group-hover:bg-dental-900/30 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div className="h-14 w-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
+                                        <ZoomIn className="h-6 w-6" />
+                                    </div>
                                 </div>
                             </motion.div>
                         </ScrollReveal>
@@ -71,23 +70,37 @@ export function GallerySection() {
             </div>
 
             {/* Lightbox Modal */}
-            {selectedImage && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-in fade-in duration-200" onClick={() => setSelectedImage(null)}>
-                    <button
-                        className="absolute top-4 right-4 text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-dental-950/95 backdrop-blur-md p-4"
                         onClick={() => setSelectedImage(null)}
                     >
-                        <X className="h-8 w-8" />
-                    </button>
-                    <div className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
-                        <img
-                            src={selectedImage}
-                            alt="Gallery Fullscreen"
-                            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                        />
-                    </div>
-                </div>
-            )}
+                        <button
+                            className="absolute top-6 right-6 text-white/70 hover:text-white p-2 transition-colors z-50"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <X className="h-10 w-10" />
+                        </button>
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative max-w-6xl max-h-[90vh] w-full h-full flex items-center justify-center p-4"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={selectedImage}
+                                alt="Gallery Fullscreen"
+                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl shadow-black/50"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
-    )
+    );
 }

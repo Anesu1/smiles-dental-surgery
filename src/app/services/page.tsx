@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function ServicesPage() {
     return (
-        <main className="min-h-screen pt-12 pb-24 bg-slate-50">
+        <main className="min-h-screen pt-0 pb-24 bg-slate-50/0">
             <div className="container mx-auto px-4 md:px-6">
                 <ScrollReveal className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight text-slate-900">

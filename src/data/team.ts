@@ -1,30 +1,27 @@
 export const team = [
     {
         id: 1,
-        name: "Dr. Emily Carter",
-        role: "Lead Dentist & Orthodontist",
-        image: "/team/dr-emily.jpg", // Placeholder path
-        bio: "Dr. Carter has over 15 years of experience in creating beautiful smiles. She specializes in orthodontics and cosmetic dentistry.",
+        name: "Dr Brian Mbayiwa",
+        role: "Dental Surgeon",
+        image: "/images/old/dr.png",
+        qualifications: "BDS (UKR) IMPLANTOLOGY (INDIA) ORTHODONTICS (INDIA)",
     },
     {
         id: 2,
-        name: "Dr. James Bennett",
-        role: "Oral Surgeon",
-        image: "/team/dr-james.jpg",
-        bio: "Expert in complex extractions and dental implants. Dr. Bennett ensures every procedure is as comfortable as possible.",
+        name: "Nontokozo Ncube",
+        role: "Dental Assistant",
+        image: "/images/old/assistant1.png",
     },
     {
         id: 3,
-        name: "Sarah Jenkins",
-        role: "Dental Hygienist",
-        image: "/team/sarah.jpg",
-        bio: "Sarah is passionate about preventative care and patient education, helping you keep your smile healthy for life.",
+        name: "Elton Machikiza",
+        role: "Dental Assistant",
+        image: "/images/old/assistant2.png",
     },
     {
         id: 4,
-        name: "Michael Ross",
-        role: "Practice Manager",
-        image: "/team/michael.jpg",
-        bio: "Michael ensures our clinic runs smoothly and that every patient has a seamless experience from booking to billing.",
+        name: "Tafadzwa Athena Mukwasi",
+        role: "Receptionist",
+        image: "/images/old/receptionist.png",
     },
 ]

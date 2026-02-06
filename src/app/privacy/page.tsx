@@ -1,6 +1,6 @@
 export default function PrivacyPage() {
     return (
-        <main className="min-h-screen pt-12 pb-24 bg-white">
+        <main className="min-h-screen pt-0 pb-24 bg-white/0">
             <div className="container mx-auto px-4 md:px-6 max-w-3xl prose prose-slate">
                 <h1>Privacy Policy</h1>
                 <p>Last updated: {new Date().toLocaleDateString()}</p>

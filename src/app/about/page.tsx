@@ -7,7 +7,7 @@ import { TeamSection } from "@/components/sections/TeamSection"
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen pt-12 pb-24 bg-white">
+        <main className="min-h-screen pt-0 pb-24 bg-white/0">
             <div className="container mx-auto px-4 md:px-6">
                 {/* Intro */}
                 <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
