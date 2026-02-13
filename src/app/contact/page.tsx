@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, Clock } from "lucide-react"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import { ContactForm } from "@/components/sections/ContactForm"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -32,27 +29,7 @@ export default function ContactPage() {
                         <Card className="border-none shadow-lg h-full">
                             <CardContent className="p-8">
                                 <h2 className="text-2xl font-bold text-slate-900 mb-6">Send a Message</h2>
-                                <form className="space-y-6">
-                                    <div className="grid md:grid-cols-2 gap-4">
-                                        <div className="space-y-2">
-                                            <Label htmlFor="name">Name</Label>
-                                            <Input id="name" placeholder="Your name" />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <Label htmlFor="email">Email</Label>
-                                            <Input id="email" type="email" placeholder="your@email.com" />
-                                        </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="subject">Subject</Label>
-                                        <Input id="subject" placeholder="What is this regarding?" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="message">Message</Label>
-                                        <Textarea id="message" placeholder="Type your message here..." className="min-h-[150px]" />
-                                    </div>
-                                    <Button className="w-full text-lg h-12">Send Message</Button>
-                                </form>
+                                <ContactForm />
                             </CardContent>
                         </Card>
                     </ScrollReveal>

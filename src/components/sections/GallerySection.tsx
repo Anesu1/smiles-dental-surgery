@@ -11,7 +11,7 @@ const galleryImages = [
     "/images/Whisk_0e891c53e3e14e4b64044b6761ade36bdr.jpeg",
     "/images/Whisk_1037e134b87547781a14fb6fae04788fdr.jpeg",
     "/images/Whisk_22b4527bf35b4eaa5cd44b9a97c8107fdr.jpeg",
-    "/images/Whisk_2a25f2e53067f3b9c534e1fe7a2de025dr.jpeg",
+    "/images/Whisk_a74bb60cf13afca8b574189082f44d59dr.jpeg",
     "/images/Whisk_2b587a554512097ae6e466ea90e6b839dr.jpeg",
     "/images/Whisk_310fa6377a2020bb0494942bae91bc92dr.jpeg",
     "/images/Whisk_31b3ae92fd6b0019cf1460620012e8dadr.jpeg",
