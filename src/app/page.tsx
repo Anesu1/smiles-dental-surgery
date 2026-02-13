@@ -3,9 +3,16 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs"
 import { ServicesGrid } from "@/components/sections/ServicesGrid"
 import { Testimonials } from "@/components/sections/Testimonials"
 import { FAQSection } from "@/components/sections/FAQSection"
-import { GallerySection } from "@/components/sections/GallerySection"
 import { CtaBand } from "@/components/sections/CtaBand"
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
+
+const GallerySection = dynamic(
+    () => import("@/components/sections/GallerySection").then((m) => m.GallerySection),
+    {
+        loading: () => <section className="py-16" aria-label="Loading gallery" />,
+    },
+)
 
 export const metadata: Metadata = {
     title: "Dentist in Bulawayo for Family, Cosmetic, and Restorative Care",

@@ -14,7 +14,7 @@ export function MobileFloatingCTA() {
     }
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md border-t border-slate-200 lg:hidden z-50">
+        <div className="fixed bottom-0 left-0 right-0 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-white border-t border-slate-200 lg:hidden z-50">
             <Button asChild className="w-full shadow-lg h-12 text-lg font-medium bg-dental-600 hover:bg-dental-700">
                 <Link href="/appointment">
                     <Calendar className="mr-2 h-5 w-5" />

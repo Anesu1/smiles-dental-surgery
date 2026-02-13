@@ -37,6 +37,11 @@
       )
       rgb(var(--background-start-rgb));
     @apply antialiased scroll-smooth;
+    overflow-x: clip;
+  }
+
+  html {
+    overflow-x: clip;
   }
 
   html.lenis, html.lenis body {

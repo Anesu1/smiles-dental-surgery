@@ -15,7 +15,7 @@ export function Hero() {
     const y2 = useTransform(scrollY, [0, 500], [0, prefersReducedMotion ? 0 : -150]);
 
     return (
-        <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pb-12 lg:pb-0 bg-white/0">
+        <section ref={containerRef} className="relative overflow-hidden min-h-[100svh] flex items-center pb-12 lg:pb-0 bg-white/0">
             {/* Ambient Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] right-[-10%] w-[80vw] h-[80vw] bg-dental-200/20 rounded-full blur-[100px]" />
@@ -41,7 +41,7 @@ export function Hero() {
                         </motion.div>
 
                         <div className="space-y-4">
-                            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-heading font-black tracking-tight text-dental-950 leading-[0.9]">
+                            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-heading font-black tracking-tight text-dental-950 leading-[0.9]">
                                 <span className="block overflow-hidden">
                                     <motion.span
                                         initial={prefersReducedMotion ? false : { y: "110%" }}
@@ -67,7 +67,7 @@ export function Hero() {
                                 initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.6 }}
-                                className="text-xl text-dental-700/80 max-w-lg leading-relaxed font-light"
+                                className="text-lg sm:text-xl text-dental-700/80 max-w-lg leading-relaxed font-light"
                             >
                                 Experience modern dentistry in Bulawayo where precision meets compassion, from dental check-ups and teeth cleaning to braces, aligners, and implants.
                             </motion.p>
@@ -95,7 +95,7 @@ export function Hero() {
                             initial={prefersReducedMotion ? false : { opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: prefersReducedMotion ? 0 : 1, delay: prefersReducedMotion ? 0 : 1 }}
-                            className="pt-8 flex items-center gap-8 border-t border-dental-200/50"
+                            className="pt-8 flex items-center gap-5 sm:gap-8 border-t border-dental-200/50"
                         >
                             <div className="flex -space-x-3">
                                 {[1, 2, 3, 4].map((i) => (
