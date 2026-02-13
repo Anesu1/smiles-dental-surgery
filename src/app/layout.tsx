@@ -21,19 +21,25 @@ function getBaseUrl() {
 }
 
 const baseUrl = getBaseUrl();
+const siteName = "Smile Dental Surgery";
+const defaultOgImage = "/images/logo.png";
+const clinicPhone = "+263717673355";
+const clinicEmail = process.env.EMAIL_USER || "info@smilesdentalzw.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Smile Dental Surgery Bulawayo | Dentist, Orthodontics, Implants",
+    default: "Smile Dental Surgery Bulawayo | Family and Cosmetic Dentist",
     template: "%s | Smile Dental Surgery Bulawayo",
   },
   description:
-    "Smile Dental Surgery in Bulawayo offers dental check-ups, teeth cleaning, fillings, extractions, root canal treatment, braces, clear aligners, implants, crowns, and teeth whitening.",
+    "Smile Dental Surgery in Bulawayo provides dental check-ups, cleanings, fillings, root canal treatment, braces, clear aligners, tooth replacement, and teeth whitening.",
   keywords: [
-    "dentist Bulawayo",
-    "dental clinic Bulawayo",
-    "Smile Dental Surgery",
+    "dentist in Bulawayo",
+    "Bulawayo dental clinic",
+    "Smile Dental Surgery Bulawayo",
+    "family dentist Bulawayo",
+    "emergency dentist Bulawayo",
     "orthodontics Bulawayo",
     "braces Bulawayo",
     "clear aligners Bulawayo",
@@ -41,23 +47,42 @@ export const metadata: Metadata = {
     "teeth whitening Bulawayo",
     "root canal Bulawayo",
     "dental check up Bulawayo",
+    "tooth extraction Bulawayo",
+    "dental fillings Bulawayo",
   ],
+  category: "healthcare",
+  applicationName: siteName,
+  creator: siteName,
+  publisher: siteName,
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    siteName: "Smile Dental Surgery",
-    title: "Smile Dental Surgery Bulawayo | Dentist, Orthodontics, Implants",
+    locale: "en_ZW",
+    siteName,
+    title: "Smile Dental Surgery Bulawayo | Family and Cosmetic Dentist",
     description:
       "Trusted dental care in Bulawayo with preventive, restorative, cosmetic, and orthodontic treatments.",
+    images: [
+      {
+        url: defaultOgImage,
+        width: 1200,
+        height: 630,
+        alt: "Smile Dental Surgery",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smile Dental Surgery Bulawayo",
+    title: "Smile Dental Surgery Bulawayo | Family and Cosmetic Dentist",
     description:
       "Dental check-ups, braces, implants, whitening, and emergency-friendly oral care in Bulawayo.",
+    images: [defaultOgImage],
   },
 };
 
@@ -90,17 +115,32 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Dentist",
+                "@id": `${baseUrl}/#dentist`,
                 name: "Smile Dental Surgery",
+                alternateName: "Smiles Dental Surgery",
                 url: baseUrl,
-                telephone: "+263717673355",
-                email: "info@dentex.co.zw",
-                image: `${baseUrl}/images/logo.png`,
+                telephone: clinicPhone,
+                email: clinicEmail,
+                image: [
+                  `${baseUrl}/images/logo.png`,
+                  `${baseUrl}/images/hjhh_converted.png`,
+                ],
                 address: {
                   "@type": "PostalAddress",
                   addressLocality: "Bulawayo",
+                  addressRegion: "Bulawayo",
                   addressCountry: "ZW",
                 },
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: -20.15395,
+                  longitude: 28.58262,
+                },
+                hasMap:
+                  "https://www.google.com/maps/search/?api=1&query=Smile+Dental+Surgery+Bulawayo",
+                priceRange: "$$",
                 areaServed: "Bulawayo",
+                medicalSpecialty: "Dentistry",
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",
@@ -115,7 +155,17 @@ export default function RootLayout({
                     closes: "15:00",
                   },
                 ],
-                sameAs: [`${baseUrl}/contact`],
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    contactType: "customer service",
+                    telephone: clinicPhone,
+                    email: clinicEmail,
+                    areaServed: "ZW",
+                    availableLanguage: ["English"],
+                  },
+                ],
+                sameAs: [`${baseUrl}/contact`, `${baseUrl}/reviews`],
               }),
             }}
           />

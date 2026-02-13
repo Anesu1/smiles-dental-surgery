@@ -1,9 +1,24 @@
 
 import Link from "next/link"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { TeamSection } from "@/components/sections/TeamSection"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "About Smile Dental Surgery in Bulawayo",
+    description: "Learn about Smile Dental Surgery, our approach to patient care, and our commitment to modern dentistry in Bulawayo.",
+    alternates: {
+        canonical: "/about",
+    },
+    openGraph: {
+        title: "About Smile Dental Surgery Bulawayo",
+        description: "Meet the clinic and values behind Smile Dental Surgery in Bulawayo.",
+        url: "/about",
+        type: "website",
+    },
+}
 
 export default function AboutPage() {
     return (

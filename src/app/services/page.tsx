@@ -10,6 +10,16 @@ export const metadata: Metadata = {
     title: "Dental Services in Bulawayo: Braces, Root Canal, Fillings, Whitening",
     description:
         "Explore Smile Dental Surgery services in Bulawayo, including check-ups, teeth cleaning, fillings, extractions, veneers, braces, clear aligners, and tooth replacement options.",
+    alternates: {
+        canonical: "/services",
+    },
+    openGraph: {
+        title: "Dental Services in Bulawayo | Smile Dental Surgery",
+        description:
+            "Check available dental services including preventive care, braces, root canal treatment, and cosmetic dentistry in Bulawayo.",
+        url: "/services",
+        type: "website",
+    },
 }
 
 export default function ServicesPage() {

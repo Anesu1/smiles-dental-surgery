@@ -1,10 +1,20 @@
 import Link from "next/link"
 import { faqs } from "@/data/faqs"
 import { Button } from "@/components/ui/button"
+import type { Metadata } from "next"
 
-export const metadata = {
-    title: "FAQ | Dentex",
-    description: "Frequently Asked Questions about our services and policies.",
+export const metadata: Metadata = {
+    title: "Dental FAQs in Bulawayo",
+    description: "Answers to common questions about appointments, medical aid, emergencies, and treatment options at Smile Dental Surgery.",
+    alternates: {
+        canonical: "/faq",
+    },
+    openGraph: {
+        title: "Dental FAQs | Smile Dental Surgery Bulawayo",
+        description: "Get quick answers to common dental questions from Smile Dental Surgery.",
+        url: "/faq",
+        type: "website",
+    },
 }
 
 export default function FAQPage() {
@@ -40,12 +50,29 @@ export default function FAQPage() {
 
                 <div className="mt-16 text-center bg-dental-50 rounded-2xl p-8 border border-dental-100">
                     <h3 className="text-xl font-bold text-dental-900 mb-2">Still have questions?</h3>
-                    <p className="text-slate-600 mb-6">Cannot find the answer you're looking for? Please chat to our friendly team.</p>
+                    <p className="text-slate-600 mb-6">Cannot find the answer you&apos;re looking for? Please chat to our friendly team.</p>
                     <Button asChild>
                         <Link href="/contact">Contact Us</Link>
                     </Button>
                 </div>
             </div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: faqs.map((faq) => ({
+                            "@type": "Question",
+                            name: faq.question,
+                            acceptedAnswer: {
+                                "@type": "Answer",
+                                text: faq.answer,
+                            },
+                        })),
+                    }),
+                }}
+            />
         </main>
     )
 }

@@ -1,5 +1,20 @@
 import { Suspense } from "react"
 import { AppointmentBooking } from "@/components/sections/AppointmentBooking"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Book a Dental Appointment in Bulawayo",
+    description: "Book your dental appointment at Smile Dental Surgery in Bulawayo for check-ups, cleanings, braces, and more.",
+    alternates: {
+        canonical: "/appointment",
+    },
+    openGraph: {
+        title: "Book Appointment | Smile Dental Surgery Bulawayo",
+        description: "Book your visit with Smile Dental Surgery in Bulawayo.",
+        url: "/appointment",
+        type: "website",
+    },
+}
 
 export default function AppointmentPage() {
     return (

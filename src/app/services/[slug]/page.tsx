@@ -5,6 +5,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { services } from "@/data/services"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import type { Metadata } from "next"
 
 function getServiceBySlug(slug: string) {
     const normalized = decodeURIComponent(slug).trim().toLowerCase()
@@ -17,7 +18,7 @@ export async function generateStaticParams() {
     }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params
     const service = getServiceBySlug(slug)
 
@@ -25,18 +26,35 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         return {
             title: "Service Not Found",
             description: "The requested dental service could not be found.",
+            robots: {
+                index: false,
+                follow: false,
+            },
         }
     }
 
+    const canonicalPath = `/services/${service.slug}`
+    const pageTitle = `${service.title} in Bulawayo`
+    const pageDescription = `${service.description} Book ${service.title.toLowerCase()} at Smile Dental Surgery in Bulawayo.`
+
     return {
-        title: `${service.title} in Bulawayo`,
-        description: `${service.description} Book ${service.title.toLowerCase()} at Smile Dental Surgery in Bulawayo.`,
+        title: pageTitle,
+        description: pageDescription,
         keywords: [
             `${service.title} Bulawayo`,
             `dentist Bulawayo`,
             `dental clinic Bulawayo`,
             `oral health Bulawayo`,
         ],
+        alternates: {
+            canonical: canonicalPath,
+        },
+        openGraph: {
+            title: `${service.title} | Smile Dental Surgery Bulawayo`,
+            description: pageDescription,
+            url: canonicalPath,
+            type: "article",
+        },
     }
 }
 

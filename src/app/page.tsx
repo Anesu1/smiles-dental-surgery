@@ -11,6 +11,16 @@ export const metadata: Metadata = {
     title: "Dentist in Bulawayo for Family, Cosmetic, and Restorative Care",
     description:
         "Book with Smile Dental Surgery, a Bulawayo dentist for dental examinations, cleanings, fillings, braces, aligners, root canal therapy, and whitening.",
+    alternates: {
+        canonical: "/",
+    },
+    openGraph: {
+        title: "Dentist in Bulawayo | Smile Dental Surgery",
+        description:
+            "Book with Smile Dental Surgery for checkups, braces, clear aligners, root canal treatment, and whitening in Bulawayo.",
+        url: "/",
+        type: "website",
+    },
 }
 
 export default function Home() {

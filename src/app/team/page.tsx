@@ -3,6 +3,21 @@ import { Card } from "@/components/ui/card"
 import { team } from "@/data/team"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Meet Our Dental Team in Bulawayo",
+    description: "Get to know the dentists and support team at Smile Dental Surgery in Bulawayo.",
+    alternates: {
+        canonical: "/team",
+    },
+    openGraph: {
+        title: "Dental Team | Smile Dental Surgery Bulawayo",
+        description: "Meet the experienced dental team at Smile Dental Surgery in Bulawayo.",
+        url: "/team",
+        type: "website",
+    },
+}
 
 export default function TeamPage() {
     return (

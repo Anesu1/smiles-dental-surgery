@@ -3,10 +3,20 @@ import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { testimonials } from "@/data/testimonials"
+import type { Metadata } from "next"
 
-export const metadata = {
-    title: "Patient Reviews | Dentex",
-    description: "See what our happy patients have to say about their experience.",
+export const metadata: Metadata = {
+    title: "Patient Reviews for Smile Dental Surgery Bulawayo",
+    description: "Read patient experiences and testimonials for Smile Dental Surgery in Bulawayo.",
+    alternates: {
+        canonical: "/reviews",
+    },
+    openGraph: {
+        title: "Patient Reviews | Smile Dental Surgery Bulawayo",
+        description: "Read patient experiences and testimonials for Smile Dental Surgery in Bulawayo.",
+        url: "/reviews",
+        type: "website",
+    },
 }
 
 export default function ReviewsPage() {
@@ -18,7 +28,7 @@ export default function ReviewsPage() {
                         Patient Stories
                     </h1>
                     <p className="text-lg text-slate-600">
-                        We are proud to have served thousands of happy patients. Here's what they say about us.
+                        We are proud to have served thousands of happy patients. Here&apos;s what they say about us.
                     </p>
                     <Button asChild size="lg" className="mt-4">
                         <Link href="/appointment">Book Your Experience</Link>
@@ -38,7 +48,7 @@ export default function ReviewsPage() {
                                     ))}
                                 </div>
                                 {testimonial.content ? (
-                                    <p className="text-slate-700 italic mb-6 leading-relaxed">"{testimonial.content}"</p>
+                                    <p className="text-slate-700 italic mb-6 leading-relaxed">&quot;{testimonial.content}&quot;</p>
                                 ) : (
                                     <p className="text-slate-500 italic mb-6 leading-relaxed">Rating only</p>
                                 )}

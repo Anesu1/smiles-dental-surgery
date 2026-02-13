@@ -8,6 +8,16 @@ export const metadata: Metadata = {
     title: "Contact Smile Dental Surgery in Bulawayo",
     description:
         "Get directions, phone numbers, opening hours, and appointment support for Smile Dental Surgery in Bulawayo.",
+    alternates: {
+        canonical: "/contact",
+    },
+    openGraph: {
+        title: "Contact Smile Dental Surgery Bulawayo",
+        description:
+            "Call, WhatsApp, or send a message to Smile Dental Surgery in Bulawayo.",
+        url: "/contact",
+        type: "website",
+    },
 }
 
 export default function ContactPage() {
