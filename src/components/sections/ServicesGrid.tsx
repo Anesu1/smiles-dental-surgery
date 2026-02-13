@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Stethoscope, Sparkles, Smile, Hammer, Activity, Baby } from "lucide-react";
+import { ArrowRight, Stethoscope, Sparkles, Smile, Hammer, Activity, Star } from "lucide-react";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { services } from "@/data/services";
@@ -13,7 +13,7 @@ const IconMap: Record<string, any> = {
     Smile,
     Hammer,
     Activity,
-    Baby
+    Star,
 };
 
 export function ServicesGrid() {
@@ -85,7 +85,7 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
 
                         <h3 className="text-2xl font-bold text-dental-950 mb-3 group-hover:text-dental-600 transition-colors">{service.title}</h3>
                         <p className="text-dental-700/70 leading-relaxed mb-6 flex-grow font-light">
-                            {service.description}
+                            {service.details?.intro || service.description}
                         </p>
                     </div>
                 </div>

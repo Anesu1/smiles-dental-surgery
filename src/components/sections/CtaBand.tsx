@@ -33,20 +33,7 @@ export function CtaBand() {
                         Experience the difference of dental care that puts you first. Book your appointment today and start your journey to a healthier smile.
                     </p>
 
-                    <div className="max-w-md mx-auto mb-12 relative">
-                        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-dental-400 to-dental-600 opacity-20 blur-lg transition duration-200 group-hover:opacity-40"></div>
-                        <div className="flex gap-2 relative bg-white/5 backdrop-blur-sm p-2 rounded-full border border-white/10 shadow-2xl">
-                            <input
-                                type="email"
-                                placeholder="Enter your email to subscribe"
-                                className="flex-1 h-12 bg-transparent px-4 py-2 text-sm text-white placeholder:text-dental-300 focus:outline-none"
-                            />
-                            <Button className="rounded-full px-8 h-12 bg-white text-dental-950 hover:bg-dental-50 font-medium transition-all hover:scale-105 active:scale-95 shadow-lg">
-                                Subscribe
-                            </Button>
-                        </div>
-                        <p className="text-xs text-dental-400 mt-4">We respect your inbox. No spam, ever.</p>
-                    </div>
+                    
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                         <Button asChild size="lg" className="rounded-full h-16 px-10 text-lg font-bold bg-dental-500 text-white hover:bg-dental-400 shadow-[0_0_40px_-10px_rgba(78,124,192,0.5)] transition-all hover:-translate-y-1 hover:shadow-[0_0_60px_-15px_rgba(78,124,192,0.6)]">

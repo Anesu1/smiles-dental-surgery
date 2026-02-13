@@ -72,7 +72,7 @@ export function AppointmentBooking() {
     const handleWhatsAppConfirm = () => {
         if (!bookingData) return
 
-        const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "263771234567" // Fallback for demo
+        const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "263717673355" // Fallback for demo
         const message = `Hello, I'd like to book an appointment.%0A%0A*Name:* ${bookingData.fullName}%0A*Service:* ${bookingData.service}%0A*Date:* ${bookingData.date}%0A*Time:* ${bookingData.time}%0A*Phone:* ${bookingData.phone}%0A*Notes:* ${bookingData.notes || "None"}`
 
         window.open(`https://wa.me/${number}?text=${message}`, "_blank")
@@ -123,7 +123,7 @@ export function AppointmentBooking() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="space-y-2">
                                             <Label htmlFor="phone">Phone Number</Label>
-                                            <Input id="phone" placeholder="+263 77..." {...form.register("phone")} />
+                                            <Input id="phone" placeholder="+263 717 673 355" {...form.register("phone")} />
                                             {form.formState.errors.phone && (
                                                 <p className="text-sm text-red-500">{form.formState.errors.phone.message}</p>
                                             )}

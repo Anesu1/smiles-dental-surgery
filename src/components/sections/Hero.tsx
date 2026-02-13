@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { ArrowRight, Star, ShieldCheck, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import Image from "next/image";
@@ -37,7 +37,7 @@ export function Hero() {
                                 <span className={prefersReducedMotion ? "absolute inline-flex h-full w-full rounded-full bg-dental-400 opacity-75" : "animate-ping absolute inline-flex h-full w-full rounded-full bg-dental-400 opacity-75"}></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-dental-500"></span>
                             </span>
-                            Accepting New Patients
+                            Accepting New Patients in Bulawayo
                         </motion.div>
 
                         <div className="space-y-4">
@@ -69,7 +69,7 @@ export function Hero() {
                                 transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.6 }}
                                 className="text-xl text-dental-700/80 max-w-lg leading-relaxed font-light"
                             >
-                                Experience modern dentistry where precision meets compassion. Designed for comfort, styled for confidence.
+                                Experience modern dentistry in Bulawayo where precision meets compassion, from dental check-ups and teeth cleaning to braces, aligners, and implants.
                             </motion.p>
                         </div>
 
@@ -129,8 +129,8 @@ export function Hero() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-dental-900/40 to-transparent" />
                                 <div className="absolute bottom-8 left-8 text-white">
-                                    <p className="text-lg font-bold">Dr. Sarah & Team</p>
-                                    <p className="opacity-80">Leading Specialists</p>
+                                    <p className="text-lg font-bold">Dr. Brian</p>
+                                    <p className="opacity-80">Dental Surgeon</p>
                                 </div>
                             </div>
                         </motion.div>

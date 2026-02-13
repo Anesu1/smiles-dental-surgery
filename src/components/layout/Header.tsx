@@ -14,8 +14,6 @@ const navLinks = [
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/team", label: "Team" },
-    { href: "/reviews", label: "Reviews" },
-    { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Contact" },
 ];
 
@@ -117,7 +115,7 @@ export function Header() {
                         <div className="hidden lg:flex items-center gap-4">
                             <div className="hidden xl:flex items-center gap-2 text-sm font-medium text-dental-800">
                                 <Phone className="h-4 w-4 text-dental-500" />
-                                <span>+263 77 123 4567</span>
+                                <span>+263 717 673 355</span>
                             </div>
                             <Button
                                 asChild

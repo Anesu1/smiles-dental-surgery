@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { services } from "@/data/services"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import type { Metadata } from "next"
 
-export const metadata = {
-    title: "Our Services | Dentex",
-    description: "Explore our comprehensive range of dental treatments and services.",
+export const metadata: Metadata = {
+    title: "Dental Services in Bulawayo: Braces, Root Canal, Fillings, Whitening",
+    description:
+        "Explore Smile Dental Surgery services in Bulawayo, including check-ups, teeth cleaning, fillings, extractions, veneers, braces, clear aligners, and tooth replacement options.",
 }
 
 export default function ServicesPage() {
@@ -16,10 +18,10 @@ export default function ServicesPage() {
             <div className="container mx-auto px-4 md:px-6">
                 <ScrollReveal className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight text-slate-900">
-                        World-Class Dental Treatments
+                        Dental Services in Bulawayo
                     </h1>
                     <p className="text-lg text-slate-600">
-                        From routine checkups to specialized surgical procedures, we offer a full spectrum of dental care designed for your comfort and health.
+                        From routine dental check-ups and teeth cleaning to braces, aligners, root canal treatment, and cosmetic dentistry, we offer comprehensive oral care for families in Bulawayo.
                     </p>
                 </ScrollReveal>
 

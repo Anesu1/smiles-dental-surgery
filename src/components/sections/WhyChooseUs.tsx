@@ -81,12 +81,13 @@ export function WhyChooseUs() {
                             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                                 <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-2xl">
                                     <p className="text-lg font-medium italic leading-relaxed text-white/90">
-                                        "The most comfortable dental experience I've ever had. Highly recommended!"
+                                        "Loved the experience. Had a tooth extraction today and the dentist was so good and he explains everything patiently, the whole staff is welcoming and friendly.The fees are reasonable as well.
+Keep it up guys. God bless🙏 …"
                                     </p>
                                     <div className="mt-4 flex items-center gap-4">
-                                        <div className="h-10 w-10 rounded-full bg-white text-dental-900 flex items-center justify-center font-bold shadow-lg">SP</div>
+                                        <div className="h-10 w-10 rounded-full bg-white text-dental-900 flex items-center justify-center font-bold shadow-lg">HM</div>
                                         <div>
-                                            <p className="text-sm font-bold text-white">Sarah P.</p>
+                                            <p className="text-sm font-bold text-white">Hillary T Mabubu</p>
                                             <p className="text-xs text-dental-100">Regular Patient</p>
                                         </div>
                                     </div>

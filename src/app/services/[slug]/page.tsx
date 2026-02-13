@@ -1,9 +1,15 @@
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { CheckCircle2, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { services } from "@/data/services"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+
+function getServiceBySlug(slug: string) {
+    const normalized = decodeURIComponent(slug).trim().toLowerCase()
+    return services.find((service) => service.slug === normalized)
+}
 
 export async function generateStaticParams() {
     return services.map((service) => ({
@@ -11,8 +17,32 @@ export async function generateStaticParams() {
     }))
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-    const service = services.find((s) => s.slug === params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
+    const service = getServiceBySlug(slug)
+
+    if (!service) {
+        return {
+            title: "Service Not Found",
+            description: "The requested dental service could not be found.",
+        }
+    }
+
+    return {
+        title: `${service.title} in Bulawayo`,
+        description: `${service.description} Book ${service.title.toLowerCase()} at Smile Dental Surgery in Bulawayo.`,
+        keywords: [
+            `${service.title} Bulawayo`,
+            `dentist Bulawayo`,
+            `dental clinic Bulawayo`,
+            `oral health Bulawayo`,
+        ],
+    }
+}
+
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
+    const service = getServiceBySlug(slug)
 
     if (!service) {
         notFound()
@@ -28,7 +58,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                             {service.title}
                         </h1>
                         <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
-                            {service.description} At Dentex, we provide expert {service.title.toLowerCase()} with a focus on your comfort and long-term oral health.
+                            {service.description} {service.details?.intro}
                         </p>
                     </ScrollReveal>
                 </div>
@@ -38,13 +68,26 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 <div className="grid lg:grid-cols-3 gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-12">
+                        <ScrollReveal delay={0.15}>
+                            <div className="relative overflow-hidden rounded-3xl border border-dental-100 bg-white shadow-lg shadow-dental-100/60 aspect-[16/10]">
+                                <Image
+                                    src={service.image}
+                                    alt={service.imageAlt || `${service.title} treatment`}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(min-width: 1024px) 66vw, 100vw"
+                                    priority
+                                />
+                            </div>
+                        </ScrollReveal>
+
                         <ScrollReveal delay={0.2}>
                             <h2 className="text-2xl font-bold text-slate-900 mb-6">Benefits of {service.title}</h2>
                             <div className="grid sm:grid-cols-2 gap-4">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="flex gap-3 items-start p-4 rounded-xl bg-white border border-slate-100">
+                                {(service.details?.benefits || []).map((benefit) => (
+                                    <div key={benefit} className="flex gap-3 items-start p-4 rounded-xl bg-white border border-slate-100">
                                         <CheckCircle2 className="h-5 w-5 text-dental-500 shrink-0 mt-0.5" />
-                                        <p className="text-slate-600">Benefit placeholder #{i} for {service.title} explaining specific advantages.</p>
+                                        <p className="text-slate-600">{benefit}</p>
                                     </div>
                                 ))}
                             </div>
@@ -53,17 +96,11 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                         <ScrollReveal delay={0.3}>
                             <h2 className="text-2xl font-bold text-slate-900 mb-6">What to Expect</h2>
                             <div className="prose prose-slate max-w-none text-slate-600">
-                                <p className="mb-4">
-                                    Our {service.title.toLowerCase()} process is designed to be efficient and comfortable.
-                                    First, we conduct a thorough examination to assess your specific needs.
-                                </p>
-                                <p className="mb-4">
-                                    Then, using state-of-the-art technology, we perform the treatment with precision.
-                                    Our team will ensure you are relaxed throughout the entire procedure.
-                                </p>
-                                <p>
-                                    Finally, we provide detailed aftercare instructions to ensure the best possible results and longevity of your treatment.
-                                </p>
+                                {(service.details?.expectations || []).map((paragraph) => (
+                                    <p key={paragraph} className="mb-4">
+                                        {paragraph}
+                                    </p>
+                                ))}
                             </div>
                         </ScrollReveal>
                     </div>
@@ -81,7 +118,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                                 </Link>
                             </Button>
                             <p className="text-xs text-center text-slate-400 mt-4">
-                                Or call us at <a href="tel:+263771234567" className="underline hover:text-dental-600">+263 77 123 4567</a>
+                                Or call us at <a href="tel:+263717673355" className="underline hover:text-dental-600">+263 717 673 355</a>
                             </p>
                         </ScrollReveal>
                     </div>

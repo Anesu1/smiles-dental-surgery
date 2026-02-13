@@ -3,12 +3,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { Phone, Mail, Clock } from "lucide-react"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import type { Metadata } from "next"
 
-export const metadata = {
-    title: "Contact Us | Dentex",
-    description: "Get in touch with us for appointments or inquiries.",
+export const metadata: Metadata = {
+    title: "Contact Smile Dental Surgery in Bulawayo",
+    description:
+        "Get directions, phone numbers, opening hours, and appointment support for Smile Dental Surgery in Bulawayo.",
 }
 
 export default function ContactPage() {
@@ -17,10 +19,10 @@ export default function ContactPage() {
             <div className="container mx-auto px-4 md:px-6">
                 <ScrollReveal className="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <h1 className="text-4xl font-bold tracking-tight text-slate-900">
-                        Get in Touch
+                        Visit Our Bulawayo Dental Clinic
                     </h1>
                     <p className="text-lg text-slate-600">
-                        Have a question? We're here to help. Send us a message or visit our clinic.
+                        Have a question? We&apos;re here to help. Send us a message or visit our clinic.
                     </p>
                 </ScrollReveal>
 
@@ -63,8 +65,8 @@ export default function ContactPage() {
                                     <Phone className="h-5 w-5" />
                                 </div>
                                 <h3 className="font-semibold text-slate-900 mb-1">Call Us</h3>
-                                <p className="text-slate-600">+263 77 123 4567</p>
-                                <p className="text-slate-600">+263 242 123 456</p>
+                                <p className="text-slate-600">+263 717 673 355 (WhatsApp)</p>
+                                <p className="text-slate-600">+263 292 882 369</p>
                             </div>
                             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                                 <div className="h-10 w-10 rounded-full bg-dental-100 flex items-center justify-center text-dental-600 mb-4">
@@ -100,12 +102,13 @@ export default function ContactPage() {
                         {/* Map Embed */}
                         <ScrollReveal direction="left" delay={0.4} className="h-[300px] bg-slate-200 rounded-2xl overflow-hidden shadow-sm">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15194.276274436576!2d31.0456!3d-17.8248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDQ5JzI5LjMiUyAzMcKwMDInNDQuMiJF!5e0!3m2!1sen!2szw!4v1620000000000!5m2!1sen!2szw"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4020.1329485341803!2d28.582622246519378!3d-20.153953508487795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eb555d58de07215%3A0xb2c513c94fc9f6cc!2sSMILE%20DENTAL%20SURGERY%20DR%20B%20MBAYIWA!5e0!3m2!1sen!2szw!4v1770962616229!5m2!1sen!2szw"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
                                 allowFullScreen={true}
                                 loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
                                 title="Clinic Location"
                             ></iframe>
                         </ScrollReveal>
